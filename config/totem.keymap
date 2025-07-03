@@ -311,7 +311,7 @@
                 <&macro_release>,
                 <&kp LCTRL>,
                 <&macro_tap>,
-                <&kp LS(S)>;
+                <&kp LS(O)>;
 
             label = "TMUX_SESSION_MACRO";
         };
