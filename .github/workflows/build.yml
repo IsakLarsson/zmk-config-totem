@@ -3,32 +3,11 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-  doc:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+    draw:
+        uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+        permissions:
+          contents: write  # allow workflow to commit to the repo
         with:
-          python-version: "3.10"
-      - run: pip install keymap_drawer
-      - name: "Copy over keymap file"
-        run: cp -f ./config/totem.keymap ./config/boards/shields/totem/
-      - name: "Parse ZMK keymap"
-        run: keymap -c ./keymap_img/totem_keymap_config.yaml parse -c 10 -z ./config/boards/shields/totem/totem.keymap --base-keymap ./keymap_img/totem_keymap_base.yaml > ./keymap_img/totem_keymap.yaml
-      - name: "Draw keymap"
-        run: keymap -c ./keymap_img/totem_keymap_config.yaml draw --select-layers default num nav fun macro -k totem ./keymap_img/totem_keymap.yaml > ./keymap_img/totem_keymap.svg
-      - name: "Commit keymap image"
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git add ./keymap_img/totem_keymap.svg
-          git status
-          git commit -m 'doc: update keymap image'
-        continue-on-error: true
-      - name: "Push keymap image"
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          keymap_patterns: "config/*.keymap"        # path to the keymaps to parse
+          config_path: "keymap_drawer.config.yaml"  # config file, ignored if not exists
+          output_folder: "keymap-drawer"
