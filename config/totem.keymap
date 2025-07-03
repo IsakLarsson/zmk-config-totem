@@ -13,7 +13,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
 #define NAV  1
@@ -38,6 +37,7 @@
             then-layer = <3>;
         };
     };
+
     combos {
         compatible = "zmk,combos";
 
@@ -218,6 +218,7 @@
             flavor = "balanced";
         };
     };
+
     macros {
         tmux_window_1: tmux_window_1 {
             compatible = "zmk,behavior-macro";
@@ -338,10 +339,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-               &kp Q  &kp W  &kp F    &kp P        &kp B        &kp J    &kp L        &kp U        &kp Y       &kp SQT
-               &kp A  &kp R  &kp S    &kp T        &kp G        &kp M    &kp N        &kp E        &kp I       &kp O
-&kp BACKSPACE  &kp Z  &kp X  &kp C    &kp D        &kp V        &kp K    &kp H        &kp COMMA    &dot_colon     &kp SLASH    &kp BSLH
-                             &sl 1  &mt_balanced LS(LC(LALT)) SPACE  &smart_shft &kp ENTER  &bspc_del &sl 2
+               &kp Q  &kp W  &kp F  &kp P                            &kp B          &kp J      &kp L      &kp U      &kp Y       &kp SQT
+               &kp A  &kp R  &kp S  &kp T                            &kp G          &kp M      &kp N      &kp E      &kp I       &kp O
+&kp BACKSPACE  &kp Z  &kp X  &kp C  &kp D                            &kp V          &kp K      &kp H      &kp COMMA  &dot_colon  &kp SLASH  &kp BSLH
+                             &sl 1  &mt_balanced LS(LC(LALT)) SPACE  &smart_shft    &kp ENTER  &bspc_del  &sl 2
             >;
         };
 
@@ -364,10 +365,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp EXCLAMATION  &kp AT         &kp DOLLAR  &kp GRAVE         &none   &kp STAR        &kp N7  &kp N8  &kp N9  &kp COMMA
-        &kp HASH         &kp LESS_THAN  &kp PIPE    &kp GREATER_THAN  &none   &kp UNDER       &kp N4  &kp N5  &kp N6  &kp PLUS
-&trans &kp BACKSLASH    &kp CARET      &kp KP_DOT  &kp RBKT          &none   &none           &kp N1  &kp N2  &kp N3  &kp SEMI &trans
-                                &trans      &trans            &trans  &kp LEFT_SHIFT  &kp N0  &trans
+            &kp EXCLAMATION  &kp AT         &kp DOLLAR  &kp GRAVE         &none     &kp STAR        &kp N7  &kp N8  &kp N9  &kp COMMA
+            &kp HASH         &kp LESS_THAN  &kp PIPE    &kp GREATER_THAN  &none     &kp UNDER       &kp N4  &kp N5  &kp N6  &kp PLUS
+&kp C_PLAY  &kp BACKSLASH    &kp CARET      &kp KP_DOT  &kp RBKT          &none     &none           &kp N1  &kp N2  &kp N3  &kp SEMI   &trans
+                                            &trans      &trans            &trans    &kp LEFT_SHIFT  &kp N0  &trans
             >;
         };
 
@@ -390,10 +391,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &kp TAB         &trans           &trans     &trans    &trans     &kp LC(H)  &kp LC(J)  &kp LC(K)  &kp LC(L)  &trans
-       &sk LEFT_SHIFT  &sk LCTRL        &sk LALT   &sk LGUI  &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp ESC
-&trans &kp C_VOL_DN    &kp C_VOLUME_UP  &kp LG(C)  &none     &kp LG(V)  &trans     &kp LC(D)  &kp LC(U)  &trans     &trans  &trans
-                                 &trans     &trans    &trans     &trans     &trans     &trans
+        &kp TAB         &trans           &trans     &trans    &trans       &kp LC(H)  &kp LC(J)  &kp LC(K)  &kp LC(L)  &trans
+        &sk LEFT_SHIFT  &sk LCTRL        &sk LALT   &sk LGUI  &trans       &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp ESC
+&trans  &kp C_VOL_DN    &kp C_VOLUME_UP  &kp LG(C)  &none     &kp LG(V)    &trans     &kp LC(D)  &kp LC(U)  &trans     &trans   &trans
+                                         &trans     &trans    &trans       &trans     &trans     &trans
             >;
         };
 
@@ -416,10 +417,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &tog 1        &trans        &trans        &trans  &bootloader  &bootloader  &kp F7  &kp F8  &kp F9  &kp F12
-       &trans        &trans        &trans        &trans  &sys_reset   &sys_reset       &kp F4  &kp F5  &kp F6  &kp F11
-&trans &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &bt BT_CLR   &trans       &kp F1  &kp F2  &kp F3  &kp F10 &trans
-                            &trans        &trans  &trans       &trans       &trans  &trans
+        &tog 1        &trans        &trans        &trans  &bootloader    &bootloader  &kp F7  &kp F8  &kp F9  &kp F12
+        &trans        &trans        &trans        &trans  &sys_reset     &sys_reset   &kp F4  &kp F5  &kp F6  &kp F11
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &bt BT_CLR     &trans       &kp F1  &kp F2  &kp F3  &kp F10  &trans
+                                    &trans        &trans  &trans         &trans       &trans  &trans
             >;
         };
 
@@ -442,14 +443,13 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &tmux_window_1  &tmux_window_2  &tmux_window_3      &tmux_window_4       &none  &none          &kp LC(SPACE)   &kp LS(LA(E))   &kp LS(LA(Y))   &none
-       &kp LG(SPACE)   &kp LA(L)       &kp LG(LS(LC(N4)))  &tmux_session_macro  &none  &kp LA(LS(H))  &kp LS(LA(G))   &kp LA(LS(S))   &kp LS(LA(L))   &none
-&trans &none           &kp LG(X)       &none               &none                &none  &kp LS(LA(A))  &tmux_window_1  &tmux_window_2  &tmux_window_3  &kp LS(LA(W)) &trans
-                                &none               &none                &none  &none          &none           &none
+        &tmux_window_1  &tmux_window_2  &tmux_window_3      &tmux_window_4       &none    &none          &kp LC(SPACE)   &kp LS(LA(E))   &kp LS(LA(Y))   &none
+        &kp LG(SPACE)   &kp LA(L)       &kp LG(LS(LC(N4)))  &tmux_session_macro  &none    &kp LA(LS(H))  &kp LS(LA(G))   &kp LA(LS(S))   &kp LS(LA(L))   &none
+&trans  &none           &kp LG(X)       &none               &none                &none    &kp LS(LA(A))  &tmux_window_1  &tmux_window_2  &tmux_window_3  &kp LS(LA(W))  &trans
+                                        &none               &none                &none    &none          &none           &none
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
     };
 };
