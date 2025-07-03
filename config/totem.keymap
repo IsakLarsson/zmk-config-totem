@@ -41,16 +41,105 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
+        combotab {
+            bindings = <&kp TAB>;
+            key-positions = <1 2>;
+            layers = <0>;
         };
 
-        combo_tvp {
-            timeout-ms = <100>;
-            key-positions = <11 12 13>;
-            bindings = <&tog TVP1>;
+        comboesc {
+            bindings = <&kp ESC>;
+            key-positions = <7 8>;
+            layers = <0>;
+        };
+
+        combo_macro_lyr {
+            bindings = <&sl 5>;
+            key-positions = <27 28>;
+            layers = <0>;
+        };
+
+        combo_arrow {
+            bindings = <&macro_arrow>;
+            key-positions = <13 12>;
+            layers = <0>;
+            require-prior-idle-ms = <130>;
+        };
+
+        combo_parenthesis {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <11 13>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
+        };
+
+        combo_braces {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <1 3>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
+        };
+
+        combo_bracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <21 23>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
+        };
+
+        equals_combo {
+            bindings = <&kp KP_EQUAL>;
+            key-positions = <19 18>;
+            layers = <0>;
+            require-prior-idle-ms = <100>;
+        };
+
+        combo_del_word {
+            bindings = <&kp LA(BACKSPACE)>;
+            key-positions = <17 18>;
+            require-prior-idle-ms = <100>;
+            layers = <0>;
+        };
+
+        combo_quote {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <2 3>;
+            layers = <0>;
+        };
+
+        combo_close_parenthesis {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <18 16>;
+            layers = <0>;
+            require-prior-idle-ms = <150>;
+            timeout-ms = <25>;
+        };
+
+        combo_fat_arrow {
+            bindings = <&macro_fat_arrow>;
+            key-positions = <17 16>;
+            layers = <0>;
+            require-prior-idle-ms = <150>;
+            timeout-ms = <25>;
+        };
+
+        combo_close_braces {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <6 8>;
+            layers = <0>;
+        };
+
+        comboMinus {
+            bindings = <&kp MINUS>;
+            key-positions = <29 28>;
+            layers = <0>;
+        };
+
+        combo_close_bracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <26 28>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
         };
     };
 
