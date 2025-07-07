@@ -21,7 +21,7 @@ layers:
   - E
   - I
   - O
-  - PLAY
+  - Ctl+O
   - Z
   - X
   - C
@@ -32,7 +32,7 @@ layers:
   - ','
   - {t: ., s: ':'}
   - /
-  - \
+  - Ctl+I
   - {t: NUM, h: sticky}
   - {t: SPACE, h: Sft+Ctl+LALT}
   - {t: LSHFT, h: sticky, s: '&caps_word'}
